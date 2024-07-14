@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b20687ab7424fdb9831faad0eef53ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  processCollisionsWhenDisabled: 1
   emittedTypes: -1
   statesToProcess: -1
   forwardingSourceValidity:
@@ -253,6 +254,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   stopCollisionsOnDisable: 1
+  colliderValidity:
+    field: {fileID: 0}
+  containingTransformValidity:
+    field: {fileID: 0}
+  stayDelayInterval: 0
 --- !u!54 &91947352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1456,6 +1462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b20687ab7424fdb9831faad0eef53ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  processCollisionsWhenDisabled: 1
   emittedTypes: -1
   statesToProcess: -1
   forwardingSourceValidity:
@@ -1481,6 +1488,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   stopCollisionsOnDisable: 1
+  colliderValidity:
+    field: {fileID: 0}
+  containingTransformValidity:
+    field: {fileID: 0}
+  stayDelayInterval: 0
 --- !u!54 &1307765880
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1694,13 +1706,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1481015413}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1587547210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6707005887722074733, guid: 319c9c4cb939912429c7786a67e40f0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1914484448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1587547214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587547210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0abcf385dd38b54ab70491bbf716bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conductColletion: 1
+  folderPath: C:\Users\silvi\OneDrive - ETH Zurich\Documents\Data
+  game: bowling
+  user: shuyuewang
 --- !u!114 &1637901054 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3013476052725209540, guid: 319c9c4cb939912429c7786a67e40f0d,
     type: 3}
   m_PrefabInstance: {fileID: 1914484448}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1587547210}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34c0cb8bdc24787439e43b7f145ac31c, type: 3}
@@ -2056,6 +2090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b20687ab7424fdb9831faad0eef53ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  processCollisionsWhenDisabled: 1
   emittedTypes: -1
   statesToProcess: -1
   forwardingSourceValidity:
@@ -2081,6 +2116,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   stopCollisionsOnDisable: 1
+  colliderValidity:
+    field: {fileID: 0}
+  containingTransformValidity:
+    field: {fileID: 0}
+  stayDelayInterval: 0
 --- !u!54 &1781958363
 Rigidbody:
   m_ObjectHideFlags: 0
