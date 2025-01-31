@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine.SpatialTracking;
+using UnityEngine.XR;
 
 public class DataCollector : MonoBehaviour
 {
@@ -12,10 +13,14 @@ public class DataCollector : MonoBehaviour
     public string game;
     public string user;
 
+    public TrackedPoseDriver head;
+    public TrackedPoseDriver leftController;
+    public TrackedPoseDriver rightController;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,19 +31,16 @@ public class DataCollector : MonoBehaviour
             DataInfo dataInfo = new DataInfo();
             dataInfo.time = Time.time;
             Device headset = new Device();
-            PoseDataSource.TryGetDataFromSource(TrackedPoseDriver.TrackedPose.Center, out Pose centerEye);
-            PoseDataSource.TryGetDataFromSource(TrackedPoseDriver.TrackedPose.LeftPose, out Pose leftController);
-            PoseDataSource.TryGetDataFromSource(TrackedPoseDriver.TrackedPose.RightPose, out Pose rightController);
-            headset.position = new Position(centerEye.position);
-            headset.rotation = new Rotation(centerEye.rotation);
+            headset.position = new Position(head.transform.position);
+            headset.rotation = new Rotation(head.transform.rotation);
             dataInfo.headset = headset;
             Device left = new Device();
-            left.position = new Position(leftController.position);
-            left.rotation = new Rotation(leftController.rotation);
+            left.position = new Position(leftController.transform.position);
+            left.rotation = new Rotation(leftController.transform.rotation);
             dataInfo.leftController = left;
             Device right = new Device();
-            right.position = new Position(rightController.position);
-            right.rotation = new Rotation(rightController.rotation);
+            right.position = new Position(rightController.transform.position);
+            right.rotation = new Rotation(rightController.transform.rotation);
             dataInfo.rightController = right;
             string path = folderPath + "/" + game + "_" + user + ".json";
             if (!File.Exists(path)) File.AppendAllText(path, "[");
@@ -77,9 +79,9 @@ public class Position
 {
     public Position(Vector3 position)
     {
-        x=position.x; 
-        y=position.y; 
-        z=position.z;
+        x = position.x;
+        y = position.y;
+        z = position.z;
     }
     public float x { get; set; }
     public float y { get; set; }
