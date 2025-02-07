@@ -8,7 +8,6 @@ using UnityEngine.XR;
 
 public class DataCollector : MonoBehaviour
 {
-    public bool conductColletion;
     public string folderPath;
     public string game;
     public string user;
@@ -26,27 +25,24 @@ public class DataCollector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (conductColletion)
-        {
-            DataInfo dataInfo = new DataInfo();
-            dataInfo.time = Time.time;
-            Device headset = new Device();
-            headset.position = new Position(head.transform.position);
-            headset.rotation = new Rotation(head.transform.rotation);
-            dataInfo.headset = headset;
-            Device left = new Device();
-            left.position = new Position(leftController.transform.position);
-            left.rotation = new Rotation(leftController.transform.rotation);
-            dataInfo.leftController = left;
-            Device right = new Device();
-            right.position = new Position(rightController.transform.position);
-            right.rotation = new Rotation(rightController.transform.rotation);
-            dataInfo.rightController = right;
-            string path = folderPath + "/" + game + "_" + user + ".json";
-            if (!File.Exists(path)) File.AppendAllText(path, "[");
-            else File.AppendAllText(path, ",");
-            File.AppendAllText(path, JsonConvert.SerializeObject(dataInfo));
-        }
+        DataInfo dataInfo = new DataInfo();
+        dataInfo.time = Time.time;
+        Device headset = new Device();
+        headset.position = new Position(head.transform.position);
+        headset.rotation = new Rotation(head.transform.rotation);
+        dataInfo.headset = headset;
+        Device left = new Device();
+        left.position = new Position(leftController.transform.position);
+        left.rotation = new Rotation(leftController.transform.rotation);
+        dataInfo.leftController = left;
+        Device right = new Device();
+        right.position = new Position(rightController.transform.position);
+        right.rotation = new Rotation(rightController.transform.rotation);
+        dataInfo.rightController = right;
+        string path = folderPath + "/" + game + "_" + user + ".json";
+        if (!File.Exists(path)) File.AppendAllText(path, "[");
+        else File.AppendAllText(path, ",");
+        File.AppendAllText(path, JsonConvert.SerializeObject(dataInfo));
     }
 
     private void OnApplicationQuit()
